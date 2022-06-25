@@ -1,9 +1,15 @@
 import React from 'react'
+import  {useState} from 'react'
 import {HiArrowNarrowRight} from  'react-icons/hi'
+import { Link } from 'react-scroll'
+
 
 const Hero = () =>{
+  const [nav, setNav] = useState(false)
+  const handleClick = () => setNav(!nav)
+
 return (
-    <div name='hero' className='w-full h-screen bg-[#0a192f]'>
+    <div name='home' className='w-full h-screen bg-[#0a192f]'>
       
       {/* Conatiner */}
       <div className='max-w-[950px] mx-auto px-8 flex flex-col justify-center h-full'>
@@ -13,10 +19,13 @@ return (
         <p className='text-[#98a2c7] py-4 max-w-[700px]'> I am focused on leraning responsive web applications. </p>
         <div>
           <button className='text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-pink-600 hover:border-pink-600'>
-            View Work 
+            <Link onClick={handleClick} to="work" smooth={true} offset={50} duration={500}>
+              View Work 
+            </Link>
             <span className=' group-hover:rotate-90 duration-500 '>
               <HiArrowNarrowRight className='ml-3'/>
             </span>
+            
             </button>
         </div>
       </div>
